@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-4.5.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/test.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="receipt-container">
+        <div id="receipt-header">
+            <div id="receipt-img">
+                <img src="icons/myabyanlogo.png" alt="">
+            </div>            
+            <div id="returnBtn">
+              <i class="fas fa-arrow-circle-right"></i>
+            </div>
+            <div id="receipt-number-date">
+                <h1><span>#1008</span> الفاتورة</h1>
+                <h1>26/10/2020</h1>
+            </div>     
+        </div>
+        <h1 id="receipt-head">فاتورة إستلام</h1>
+        <div id="receipt-fromTo-container">
+            <div id="receipt-to">
+                <h1>: إلى</h1>
+                <h1>حسين الهفوفي</h1>
+                <h1>0540461617</h1>
+            </div>
+            <div id="receipt-from">
+                <h1>: من</h1>
+                <h1>متجر أبيان للإتصالات</h1>
+                <h1>0540461617</h1>
+            </div>
+        </div>
+        <div id="receipt-price-container">
+            <table id="receipt-table" class="table">
+            <thead>
+                <tr>
+                <th scope="col">السعر</th>
+                <th scope="col">الكمية</th>
+                <th scope="col">العطل</th>
+                <th scope="col">الجهاز</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>100SR</td>
+                <td>5</td>
+                <td>شاشة</td>
+                <th scope="row">IPhone 11</th>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                <th scope="col">المجموع</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>100SR</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <div id="receipt-policy">
+            <h1>:سياسة الصيانة</h1>
+            <h5>منتجات وخدمات الصيانة الغير شاملة للضمان يتم فحصها أثناء التركيب والتسليم ويكون إقرار بسلامة المنتج أو الخدمة -</h5>
+            <h5>لا يتم استرجاع أو استبدال منتج أو خدمة للصيانة الغير شاملة للضمان بعد التسليم -</h5>
+            <h5>المحل غير مسئول عن الأجهزة التي مر عليها (30) يوماً ولم يستلمها العملاء -</h5>
+        </div>
+        <div id="adress">
+            <div id="adress-eng">
+                <h5>Kingdom of Saudi Arabia - Eastern Region</h5>
+                <h5>Jubail - Alsuhul Plaza Mail - Shop No (31)</h5>
+                <h5>Tel: 013-3631197</h5>
+                <h5>Mobile: 0553959730</h5>
+                <h5>Email: abyanstoreksa@gmail.com</h5>
+            </div>
+            <div id="adress-ar">
+                <h5>المملكة العربية السعودية - المنطقة الشرقية</h5>
+                <h5>الجبيل - مجمع السهول بلازا - محل رقم 31</h5>
+                <h5>تلفون: 3631197-013</h5>
+                <h5>جوال: 0553959730</h5>
+                <h5>abyanstoreksa@gmail.com :إيميل</h5>
+            </div>
+        </div>
+    </div><!--end main conatiner-->
+    <script>
+    const returnBtn = document.querySelector('#returnBtn')
+    returnBtn.addEventListener('click', ()=> {
+    window.print()
+    })
+    </script>
+</body>
+</html>

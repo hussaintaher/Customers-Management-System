@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0 0;
+    overflow-x: hidden;
+    visibility: visible;
+}
+li {
+    list-style: none;
+}
+.warranty_container {
+    width: 941px;
+    height: 842px;
+    display: none;
+    padding: 50px;
+    margin: auto;
+}
+.warranty_header {
+    display: flex;
+    margin-bottom: 165px;
+}
+.warranty_body {}
+.warranty_footer {
+padding-bottom: 20px;
+}
+#warranty_return {
+    width: 95px;
+    background-color: #000000;
+    border-radius: 20px;
+    padding: 8px 25px 5px 28px;
+    margin-right: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+#warranty_img_container {
+    width: 327px;
+    margin: auto;
+}
+
+#warranty_img_container img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* table */ 
+#warranty_header {
+    text-align: center;
+
+}
+#warranty_details {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+#table-con {
+    margin: auto;
+    height: 150px;  
+}
+#warranty-table {
+    border-collapse: collapse;
+    max-width: 800px;
+    min-width: 600px;
+    margin: auto;
+}
+#policy h4 {
+    font-size: 1.2rem;
+}
+#policy {
+    margin-right: 119px; 
+    text-align: right;
+}
+#policy li{
+    display: block;
+}
+#policy-con {
+    width: 100%;
+    font-size: 1.1rem;
+}
+#policy h4,
+#policy h5 {
+    font-size: 1.2rem;
+}
+#warranty-table td,
+#warranty-table th {
+    border: 2px solid black;
+    padding: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+#warranty-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+}
+#warranty-table td {
+    text-align: center;
+}
+#tableHeader {
+    height: 61px;
+}
+
+#print-container {
+    display: none; /* hey */
+    height: 100%;
+    width: 100%;
+}
+
+#adress-bill {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 380px;
+}
+
+#adress-eng {
+    text-align: left;
+}
+#adress-ar {
+    text-align: right;
+}
+#adress-ar h5,
+#adress-eng h5{
+    font-weight: 100;
+}
+
+#hejriDate,
+#meladiDate {
+    text-align: right;
+}
+#meladiDate {
+    margin-left: auto;
+    font-size: 1.3rem;
+}
+
+#warranty-table th,
+#warranty-table td {
+    word-break: keep-all;
+}
+

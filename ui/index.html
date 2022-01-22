@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap-4.5.2-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/fontawesome-free-5.14.0-web/css/all.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/editForm.css">
+  <link rel="stylesheet" href="css/completedPage.css">
+  <link rel="stylesheet" href="css/warrantyPage.css">
+  <link rel="stylesheet" href="css/receipt.css">
+  <link rel="stylesheet" href="css/procedure.css">
+  <title>Electron & Mongodb CRUD</title>
+</head>
+
+<body>
+
+  <div class="loader-container">
+    <div class="loader">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+<!--display block-->
+<div class="big-wrapper"><!--bigger wrapper-->
+      <div class="img-cont">
+      <img id="abyanLogo" src="icons/myabyanlogo.png" alt="">
+      </div>
+      <div class="filter-con"><!--filter page-->       
+        <div class="filter"><!--start filter-->   
+          <div id="delete-allCustomers">
+            <i class="far fa-trash-alt"></i>
+            <button>حذف الكل</button>
+          </div>
+
+          <div class="search-bar">
+            <i class="search-icon fas fa-search"></i>
+            <input type="text" id="search" value="" placeholder="بحث">
+          </div>
+
+          <div class="add-customer">
+            <i class="fas fa-user-plus"></i>
+            <button>إضافة</button>
+          </div>
+        </div> <!--end filter-->
+      </div><!--end filter page-->
+
+  <div id="main-wrapper"><!-- Main Pages -->
+    <div class="edit-customer-page"><!--edit Customer page-->
+      <i class="fas fa-times close-edit-page"></i>
+      <form id="main-edit-form">
+        <div class="editForm-container"><!--column container-->
+          <div class="column-2"><!--column2-->
+            <div class="form-group">
+              <label for="editLastDate">تاريخ التسليم</label>
+              <input id="editLastDate" type="date" asp-format="{0:yyyy-MM-dd}">
+            </div>
+            <div class="form-group">
+              <label for="editSerial">الرقم التسلسلي</label>
+              <input id="editSerial" type="text" value="لم يحدد">
+            </div>
+            <div class="form-group">
+              <label for="editColor">اللون</label>
+              <input id="editColor" type="text" value="لايوجد">
+            </div>
+            <div class="form-group">
+              <label for="editPrice">المبلغ</label>
+              <input id="editPrice" type="number">
+            </div>
+            <div class="form-group">
+              <a id="isReady">جاهز للإستلام</a>
+            </div>
+          </div><!--end column2-->
+          <div class="column-1"><!--column1--> 
+           <div class="form-group">
+              <label for="editAnotherProblem">أعطال أخرى</label>
+              <input id="editAnotherProblem" type="text" value="">
+            </div>
+
+            <div class="form-group">
+              <label for="editnotes">ملاحظات</label>
+              <textarea id="editNotes" cols="30" rows="3" value=""></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="editModel">الماركة</label>
+              <select name="editModel" id="editModel">
+                  <option value="apple">Apple</option>
+                  <option value="samsung">samsung</option>
+                  <option value="huawei">Huawei</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="editDevice">الجهاز</label>
+              <select name="editMobileType" id="editDevice">
+              +
+                  <!--Apple-->
+                  <optgroup id="editApple" label="Apple"></optgroup>
+                  <!--Samsung-->
+                  <optgroup id="editSamsung" label="Samsung"></optgroup>
+                  <!--Huawei-->
+                  <optgroup id="editHuawei" label="Huawei"></optgroup>
+              </select>
+            </div>
+        </div><!--end column1-->          
+          <div class="column-2"><!--column2-->
+            <div class="form-group">
+              <label for="editName">الأسم</label>
+              <input id="editName" type="text" value="">
+            </div>
+
+            <div class="form-group">
+              <label for="editNumber">الرقم</label>
+              <input id="editNumber" type="number" value="">
+            </div>
+
+            <div class="form-group">
+              <label for="editProblem">العطل</label>
+              <input id="editProblem" type="text" value="">
+            </div>
+
+            <div class="form-group">
+              <label for="editReceiver">المستلم</label>
+              <input id="editReceiver" type="text" value="">
+            </div>
+                  
+            <div class="form-group">
+              <label for="editData">تاريخ الإستلام</label>
+              <input id="editDate" type="date" value="">
+            </div>
+          </div><!--end column2-->
+          
+        </div> <!--end column container-->
+        
+        <div class="edit-btn">
+          <button id="edit-btn" type="submit">
+            <i class="fas fa-user-edit"></i>
+          </button>
+        </div>
+      </form>
+
+      <div id="edit-cover">
+        <div class="edit-icon">
+            <img src="icons/basket.png" alt="">
+        </div>
+      </div>
+    </div><!--end edit Customer page-->
+    
+    <div class="wrapper-one"><!-- sub wrapper -->
+      <div class="customer-page"><!--Customer page-->
+        <div class="main-list">
+          <div class="customer-head customer">
+            <ul class="customer-list">
+              <li class="customer-item">تعديل</li>
+              <li class="customer-item">الإجراءات</li>
+              <li class="customer-item">عرض</li>
+              <li class="customer-item">تاريخ التسليم</li>
+              <li class="customer-item">تاريخ الإستلام</li>
+              <li class="customer-item">أعطال أخرى</li>
+              <li class="customer-item">العطل</li>
+              <li class="customer-item">الجهاز</li>
+              <li class="customer-item">الرقم</li>
+              <li class="customer-item">الإسم</li>
+              <li class="customer-item">الحالة</li>
+              <li class="customer-item">الفاتورة</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sub-list"></div>
+      </div><!--end customer page-->
+
+      <div class="add-device-page"><!--add device page-->
+        <div class="add-device-container">
+          <h1>إضافة جهاز جديد</h1>
+          <select id="deviceModel" class="mb-3">
+            <option value="apple">apple</option>
+            <option value="samsung">samsung</option>
+            <option value="huawei">huawei</option>
+          </select>
+          <input id="deviceName" class="mb-3" type="text" placeholder="اسم الجهاز">
+          <button id="addDeviceBtn" class="mb-3">إضافة</button>
+          <button id="deleteDeviceBtn">حذف</button>
+        </div>
+        <div id="add-device-receipt">
+          <div id="receipt-btns-container">
+            <div id="receipt-printBtn">
+              <i class="fas fa-print"></i>
+            </div>
+            <div id="receipt-deleteBtn">
+              <i class="far fa-trash-alt"></i>
+            </div>
+            <div id="new-receipt-btn">
+              <i class="fas fa-user-plus"></i>
+            </div>
+          </div>
+          <div id="receipt-table-container">
+            <table id="receipt-mainTable" class="table">
+              <thead>
+                <tr>
+                  <th scope="col">السعر</th>
+                  <th scope="col">العطل</th>
+                  <th scope="col">الجهاز</th>
+                  <th scope="col">#</th>
+                </tr>
+              </thead>
+              <tbody id="receipt-tbody"></tbody>
+            </table>
+          </div><!--table container-->
+        </div><!--end add-device-receipt-->
+      </div><!--end add device page-->      
+
+       <div class="completed-page"><!--completed page-->
+        <div class="customer-page"><!--Customer page-->
+          <div class="main-list">
+            <div class="customer-head customer">
+              <ul class="customer-list">
+                <li class="customer-item">تعديل</li>
+                <li class="customer-item">عرض</li>
+                <li class="customer-item">تاريخ الإستلام</li>
+                <li class="customer-item">أعطال أخرى</li>
+                <li class="customer-item">المستلم</li>
+                <li class="customer-item">العطل</li>
+                <li class="customer-item">الجهاز</li>
+                <li class="customer-item">الرقم</li>
+                <li class="customer-item">الإسم</li>
+                <li class="customer-item">الحالة</li>
+                <li class="customer-item">الفاتورة</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="completed-list"></div>
+        </div><!--end customer page-->
+      </div><!--end completed page-->
+      
+      <div class="bill-page"><!--bill page-->
+        <h1 id="bill-heading">فاتورة الضمان</h1>          
+          <div class="bill-header">
+              <div class="bill-header-container">
+                <div class="bill-header-col">
+                  <input name="" class="bill-h" id="bill-date-meladi" placeholder="dd/mm/yyyy">
+                  <h1 class="bill-h">ميلادي</h1>
+                </div>
+                <div class="bill-header-col">
+                  <select name="" class="bill-h" id="batteryOrScreen"></select>
+                  <h1 class="bill-h">الضمان</h1>
+                </div>
+                <div class="bill-header-col ml-3 mr-3">
+                  <select name="" class="bill-h" id="allBillNum"></select>
+                  <h1 class="bill-h">رقم الفاتورة</h1>
+                </div>
+              </div>                           
+          </div>
+
+          <div class="bill-fields">
+            <div class="bill-inputs">
+              <div class="bill-col">
+                <input id="billDevice" type="text">
+              </div>
+              <div class="bill-col">
+                <input id="billSerial" type="text">
+              </div>
+              <div class="bill-col">
+                <input id="billColor" type="text">
+              </div>
+              <div class="bill-col">
+                <input id="billBarcode" type="text">
+              </div>
+            </div>
+            <div class="bill-txt">
+              <div class="bill-col">
+                <h1>: الجهاز</h1>
+              </div>
+              <div class="bill-col">
+                <h1>: الرقم التسلسلي</h1>
+              </div>
+              <div class="bill-col">
+                <h1>: اللون</h1>
+              </div>
+              <div class="bill-col">
+                <h1>: الباركود</h1>
+              </div>
+            </div>
+          </div>
+          <button id="printMe">طباعة</button>
+      </div><!--end bill page-->
+
+      <div class="form-page"><!--form page toggle class-->
+        <i class="fas fa-times close-form-page"></i>
+        <div class="form-page_fields">
+          <!--st Form-->
+          <form id="main-form">
+            <div class="form-page_form">
+              <div class="form-3"><!--form-3-->
+                <div class="form-group">
+                  <label for="theColor">اللون</label>
+                  <input id="theColor" type="text" value="">
+                </div>
+              </div><!--end form-3-->
+              <div class="form-1"><!--form-1-->
+                <div class="form-group">
+                  <label for="anotherProblem">أعطال أخرى</label>
+                  <input id="anotherProblem" type="text" value="">
+                </div>
+
+                <div class="form-group">
+                  <label for="notes">ملاحظات</label>
+                  <textarea id="notes" cols="30" rows="3" value=""></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="model">الماركة</label>
+                  <select name="model" id="model">
+                      <option value="apple">Apple</option>
+                      <option value="samsung">samsung</option>
+                      <option value="huawei">Huawei</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="device">الجهاز</label>
+                  <select name="mobileType" id="device">
+                      <!--Apple-->
+                      <optgroup id="apple" label="Apple"></optgroup>
+                      <!--Samsung-->
+                      <optgroup id="samsung" label="Samsung"></optgroup>
+                      <!--Huawei-->
+                      <optgroup id="huawei" label="Huawei"></optgroup>
+                  </select>
+                </div>
+              </div><!--end form-1--->
+
+              <div class="form-2"><!--form-2-->
+                <div class="form-group">
+                  <label for="name">الأسم</label>
+                  <input id="name" type="text" value="">
+                </div>
+                <div class="form-group">
+                  <label for="number">الرقم</label>
+                  <input id="number" type="number" value="">
+                </div>
+
+                <div class="form-group">
+                  <label for="problem">العطل</label>
+                  <input id="problem" type="text" value="">
+                </div>
+
+                <div class="form-group">
+                  <label for="receiver">المستلم</label>
+                  <input id="receiver" type="text" value="">
+                </div>
+
+                <div class="form-group">
+                  <label for="data">تاريخ الإستلام</label>
+                  <input id="date" type="date" value="">
+                </div>
+              </div><!--end form-2-->
+            </div><!--end form-container-->
+
+            <div class="btn-con">
+              <button id="create-btn" class="ml-4" type="submit">
+                <i class="fas fa-user-plus"></i>
+              </button>
+            </div>
+          </form>
+          
+        </div>
+        <div class="form-page_cover">
+          <div class="form-page-cover_icon">
+              <img src="icons/mobile.png" alt="">
+          </div>
+        </div>
+      </div><!--en Form-->
+      
+      <div class="customer-info"> <!--info page-->
+        <div class="side-bar">
+            <i class="fas fa-times closed-info"></i>
+            <div class="cover">
+              <div class="icon-con">
+                <img src="icons/man.png" alt="">
+              </div>
+            </div>
+            <!--name box-->
+            <div class="info mt-3 p-3">
+              <div class="name-box">
+                <div class="box name-txt">
+                  <h1 id="name-value"></h1>
+                </div>
+
+                <div class="box name-value">
+                  <h1>:الاسم</h1>
+                </div>
+              </div>
+              <hr>
+              <!--number box-->
+              <div class="number-box mt-3">
+                <div class="box number-txt">
+                  <h1 id="number-value"></h1>
+                </div>
+
+                <div class="box number-value">
+                  <h1>:الرقم</h1>
+                </div>
+              </div>
+              <hr>
+              <!--problem box-->
+              <div class="problem-box mt-3">
+                <div class="box problem-txt">
+                  <h1 id="problem-value"></h1>
+                </div>
+
+                <div class="box problem-value">
+                  <h1>:العطل</h1>
+                </div>
+              </div>
+              <hr>
+              <!--model box-->
+              <div class="model-box mt-3">
+                <div class="box model-txt">
+                  <h1 id="model-value"></h1>
+                </div>
+
+                <div class="box model-value">
+                  <h1>:الماركة</h1>
+                </div>
+              </div>
+              <hr>
+              <!--device box-->
+              <div class="device-box mt-3">
+                <div class="box device-txt">
+                  <h1 id="device-value"></h1>
+                </div>
+
+                <div class="box device-value">
+                  <h1>:الجهاز</h1>
+                </div>
+              </div>
+              <hr>
+              <!--receiver box-->
+              <div class="receiver-box mt-3">
+                <div class="box receiver-txt">
+                  <h1 id="receiver-value"></h1>
+                </div>
+
+                <div class="box receiver-value">
+                  <h1>:المستلم</h1>
+                </div>
+              </div>
+              <hr>
+              <!--anotherProblem box-->
+              <div class="anotherProblem-box mt-3">
+                <div class="box anotherProblem-txt">
+                  <h1 id="anotherProblem-value"></h1>
+                </div>
+
+                <div class="box anotherProblem-value">
+                  <h1>:اعطال أخرى</h1>
+                </div>
+              </div>
+              <hr>
+              <!--date box-->
+              <div class="date-box mt-3">
+                <div class="box date-txt">
+                  <h1 id="date-value"></h1>
+                </div>
+
+                <div class="box date-value">
+                  <h1>:تاريخ الإستلام</h1>
+                </div>
+              </div>
+              <hr>
+              <!--lastDate box-->
+              <div class="notes-box mt-3">
+                <div class="box lastDate-txt">
+                  <h1 id="lastDate-value"></h1>
+                </div>
+
+                <div class="box lastDate-value">
+                  <h1>:تاريخ التسليم</h1>
+                </div>
+              </div>
+              <hr>
+              <!--color box-->
+              <div class="notes-box mt-3">
+                <div class="box color-txt">
+                  <h1 id="color-value"></h1>
+                </div>
+
+                <div class="box color-value">
+                  <h1>:اللون</h1>
+                </div>
+              </div>
+              <hr>
+              <!--color box-->
+              <div class="notes-box mt-3">
+                <div class="box serial-txt">
+                  <h1 id="serial-value"></h1>
+                </div>
+
+                <div class="box serial-value">
+                  <h1>:الرقم التسلسلي</h1>
+                </div>
+              </div>
+              <hr>
+              <!--price box-->
+              <div class="notes-box mt-3">
+                <div class="box price-txt">
+                  <h1 id="price-value"></h1>
+                </div>
+
+                <div class="box price-value">
+                  <h1>:المبلغ</h1>
+                </div>
+              </div>
+              <hr>
+              <!--notes box-->
+              <div class="notes-box mt-3">
+                <div class="box notes-txt">
+                  <h1 id="notes-value"></h1>
+                </div>
+
+                <div class="box notes-value">
+                  <h1>:ملاحظات</h1>
+                </div>
+              </div>
+
+              <div class="icon-box">
+                <button id="print-info" class="mt-4">
+                  <i class="fas fa-print"></i>
+                </button>
+
+                <button id="del-info" class="mt-4">
+                  <i class="far fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
+        </div>
+      </div><!--end info-->
+
+    </div><!--end wrapper one-->
+    <!--wrapper two-->
+    <div class="wrapper-two">
+      <div class="box-con box-1">
+        <div class="box-img">
+        
+        </div>
+      </div>
+      <div class="box-con box-2">
+        <div class="box-img">
+          <i class="far fa-address-card"></i>
+        </div>
+      </div>
+      <div class="box-con box-3">
+        <div class="box-img">
+          <i class="far fa-calendar-check"></i>
+        </div>
+      </div>
+      <div class="box-con box-4">
+        <div class="box-img">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+      </div>
+      <div class="box-con box-5">
+        <div class="box-img">
+          <i class="fas fa-tools"></i>
+        </div>
+      </div>
+      <div class="box-con box-6">
+        <div class="box-img">
+
+        </div>
+      </div>
+    </div><!--end wrapper two-->
+  </div> <!--end wrapper-->
+</div><!--bigger wrapper-->
+
+  <div id="print-container"><!--print container--></div><!--end print container-->
+  <div id="receipt-container">
+    <div id="receipt-header">
+            <div id="receipt-img">
+                <img src="icons/myabyanlogo.png" alt="">
+            </div>
+            <div id="returnBtn">
+              <i class="fas fa-arrow-circle-right"></i>
+            </div>
+            <div id="receipt-number-date">
+                <h1><span id="receiptBillNum"></span> الفاتورة</h1>
+                <h1 id="receiptDate"></h1>
+            </div>     
+        </div>
+        <h1 id="receipt-head"></h1>
+        <div id="receipt-fromTo-container">
+            <div id="receipt-to">
+                <h1>: إلى</h1>
+                <h1 id="receiptName"></h1>
+                <h1 id="receiptNumber"></h1>
+            </div>
+            <div id="receipt-from">
+                <h1>: من</h1>
+                <h1>متجر أبيان للإتصالات</h1>
+                <h1>0534019118</h1>
+            </div>
+        </div>
+        <div id="receipt-price-container">
+            <table id="receipt-table" class="table">
+            <thead>
+                <tr>
+                <th scope="col">السعر</th>
+                <th scope="col">الكمية</th>
+                <th scope="col">العطل</th>
+                <th scope="col">الجهاز</th>
+                </tr>
+            </thead>
+            <tbody id="receipt-tbody-2"></tbody>
+            <thead>
+                <tr>
+                <th scope="col">المجموع</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td id="totalPrice"></td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <div id="receipt-policy">
+            <h1>:سياسة الصيانة</h1>
+            <li>إحضار فاتورة الضمان -</li>
+            <li>عدم وجود كسر أو سوء استخدام للمنتج -</li>
+            <li>يتم فحص المنتج عند الاستلام ويكون اقرار من العميل بسلامة المنتج أو الخدمة -</li>
+            <li>المحل غير مسئول عن الأجهزة التي مر عليها أكثر من (30) يوماً ولم يستلمها العميل -</li>
+        </div>
+        <div id="adress">
+          <div id="adress-eng">
+              <h5>Kingdom of Saudi Arabia - Eastern Region</h5>
+              <h5>Jubail - Alsuhul Plaza Mail - Shop No (31)</h5>
+              <h5>Mobile: 0534019118</h5>
+              <h5>Email: abyanstoreksa@gmail.com</h5>
+          </div>
+          <div id="adress-ar">
+              <h5>المملكة العربية السعودية - المنطقة الشرقية</h5>
+              <h5>الجبيل - مجمع السهول بلازا - محل رقم 31</h5>
+              <h5>جوال: 0534019118</h5>
+              <h5>abyanstoreksa@gmail.com :إيميل</h5>
+          </div>
+        </div>
+    </div><!--end receipt conatiner-->
+
+
+    <div class="warranty_container"><!--warranty conatiner-->
+      <div class="warranty_header">
+        <button id="warranty_return">Back</button>
+        <h6 id="meladiDate">saewrerw<h6>
+      </div>
+
+    <div class="warranty_body">
+        <div id="warranty_img_container">
+          <img id="abyan-logo" src="icons/myabyanlogo.png" alt="">
+        </div>
+        <h1 id="warranty_header"></h1>
+        <h6 id="warranty_details"></h6>
+          <div id="table-con">
+          <h1 id="warranty_details"></h1>
+          <table id="warranty-table">
+              <tr id="tableHeader">
+                <th>باركود القطعة</th>
+                <th>اللون</th>
+                <th>الرقم التسلسلي</th>
+                <th>الجهاز</th>
+              </tr>
+              <tr>
+                <td id="barcodeField"></td>
+                <td id="colorField"></td>
+                <td id="serialField"></td>
+                <td id="deviceField"></td>
+              </tr>
+          </table>
+          </div>
+      </div>
+
+      <div class="warranty_footer">
+        <div id="policy">
+          <div id="policy-con">
+            <h4 id="policy_header" class="mt-5">:سياسة الصيانة</h4>
+            <li>إحضار فاتورة الضمان -</li>
+            <li>عدم وجود كسر أو سوء استخدام للمنتج -</li>
+            <li>يتم فحص المنتج عند الاستلام ويكون اقرار من العميل بسلامة المنتج أو الخدمة -</li>
+            <li>المحل غير مسئول عن الأجهزة التي مر عليها أكثر من (30) يوماً ولم يستلمها العميل -</li>
+          </div>
+        </div>
+        <div id="adress-bill">
+            <div id="adress-eng">
+                <h5>Kingdom of Saudi Arabia - Eastern Region</h5>
+                <h5>Jubail - Alsuhul Plaza Mail - Shop No (31)</h5>
+                <h5>Mobile: 0534019118</h5>
+                <h5>Email: abyanstoreksa@gmail.com</h5>
+            </div>
+            <div id="adress-ar">
+                <h5>المملكة العربية السعودية - المنطقة الشرقية</h5>
+                <h5>الجبيل - مجمع السهول بلازا - محل رقم 31</h5>
+                <h5>جوال: 0534019118</h5>
+                <h5>abyanstoreksa@gmail.com :إيميل</h5>
+            </div>
+        </div>
+      </div>
+    </div><!--end warranty conatiner-->
+
+
+    <div class="procedures_container"><!--start procedure-->
+      <div class="procedure-customer"><!--start procedure-customer-->
+        <div id="procedure_header">
+          <div id="procedure_button">
+            <button id="procedure_btn">إضافة</button>
+          </div>
+          <div id="procedure_receiver">
+            <label for="procedure-receiver_input">المتخذ</label>
+            <input id="procedure-receiver_input" type="text">
+          </div>
+          <div id="procedure_name">
+            <label for="procedure-name_input">الإجراء</label>
+            <input id="procedure-name_input" type="text">
+          </div>
+          <div id="procedure_date">
+            <label for="procedure-date_input">التاريخ</label>
+            <input id="procedure-date_input" type="text">
+          </div>
+          
+        </div>   
+        <div id="procedure-list-container">
+            <ul class="procedure-list_header">
+              <li class="procedure-list-header_item">حذف</li>
+              <li class="procedure-list-header_item">متخذ الإجراء</li>
+              <li class="procedure-list-header_item procedure-task">الإجراء</li>
+              <li class="procedure-list-header_item">التاريخ</li>
+              <li class="procedure-list-header_item">الرقم</li>
+            </ul>
+            <div id="procedure_list-subContainer"></div>
+        </div>
+      </div><!--end procedure-customer-->
+        <div class="procedure-cover"><!--start procedure-cover-->
+          <i class="fas fa-times close-procedure-page"></i>
+          <img id="procedure-cover_img" src="icons/tasks.png" alt="">
+        </div><!--end procedure-cover-->
+      </div><!--end procedure-->  
+
+  <script src="app.js"></script>
+</body>
+</html>

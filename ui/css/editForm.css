@@ -1,0 +1,132 @@
+.edit-customer-page {
+    border-radius: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 953px;
+    height: 500px;
+    display: none; /* hey */
+    overflow: hidden;
+    box-shadow: -10px 19px 64px -18px rgb(0 0 0);
+    z-index: 1;
+}
+.show-edit-page {
+    display: flex;
+}
+
+/* edit form */
+#main-edit-form {
+    width: 70%;
+    background-color: #f7f7f7;
+}
+.editForm-container {
+    display: flex;
+    padding: 42px 5px 0 9px;
+}
+.column-1 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    padding: 0 10px;
+}
+.column-2 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    padding: 0 10px;
+}
+.column-3 {
+    width: 33.333%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    padding: 0 10px;
+}
+.column-4 {
+    width: 33.333%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    padding: 0 10px;
+}
+
+/* edit cover */
+#edit-cover {
+    background-color: #90d9e1; /*hey*/
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit-icon {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    width: 130px;
+    height: 130px;
+}
+.edit-icon img {
+    width: 100%;
+}
+
+.close-edit-page {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 31px;    
+    cursor: pointer;
+}
+
+/* btn */ 
+.btn-con {
+    width: 100%;
+    display: flex;
+}
+
+#edit-btn {
+    padding: 7px 40px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+#edit-btn:hover {
+    background-color: #f9c449;
+}
+.edit-btn {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.form-group {
+    width: 100%;
+}
+.form-group #isReady {
+    padding: 9px;
+    background-color: #a7bf90;
+    /* text-align: center; */
+    /* margin: auto; */
+    border-radius: 12px;
+    text-align: center;
+    margin-right: 37px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    height: auto;
+    border: 1px solid;
+    text-align: right;
+    padding: 2px 8px;
+    border-radius: 7px;
+}

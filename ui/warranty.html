@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap-4.5.2-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/fontawesome-free-5.14.0-web/css/all.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/editForm.css">
+  <link rel="stylesheet" href="css/completedPage.css">
+  <link rel="stylesheet" href="css/warrantyPage.css">
+  <link rel="stylesheet" href="css/receipt.css">
+    <title>Document</title>
+</head>
+<body>
+<div id="print-container"><!--print container-->
+    <h6 id="meladiDate">الموافق: ${warrantyObj.dateMeladi}م<h6>
+        <img id="abyan-logo" src="icons/myabyanlogo.png" alt="">
+        <h1 id="header">ضمان ${batteryOrScreen.value}</h1>
+        <div id="table-con">
+          <h1 id="details">الضمان يشمل البطارية فقط لمدة سنة من تاريخ الفاتورة</h1>
+          <table id="warranty-table">
+              <tr id="tableHeader">
+                <th>باركود القطعة</th>
+                <th>اللون</th>
+                <th>الرقم التسلسلي</th>
+                <th>الجهاز</th>
+              </tr>
+              <tr>
+                <td id="barcodeField">${warrantyObj.barcode}</td>
+                <td id="colorField">${warrantyObj.color}</td>
+                <td id="serialField">${warrantyObj.serial}</td>
+                <td id="deviceField">${warrantyObj.device}</td>
+              </tr>
+          </table>
+          <div id="policy">
+            <div id="policy-con">
+              <h4 class="mt-5">:سياسة الصيانة</h4>
+              <li>إحضار فاتورة الضمان -</li>
+              <li>عدم وجود كسر أو سوء استخدام للمنتج -</li>
+              <li>يتم فحص المنتج عند الاستلام ويكون اقرار من العميل بسلامة المنتج أو الخدمة -</li>
+              <li>المحل غير مسئول عن الأجهزة التي مر عليها أكثر من (30) يوماً ولم يستلمها العميل -</li>
+            </div>
+          </div>
+        </div>
+        <div id="adress-bill">
+            <div id="adress-eng">
+                <h5>Kingdom of Saudi Arabia - Eastern Region</h5>
+                <h5>Jubail - Alsuhul Plaza Mail - Shop No (31)</h5>
+                <h5>Mobile: 0534019118</h5>
+                <h5>Email: abyanstoreksa@gmail.com</h5>
+            </div>
+            <div id="adress-ar">
+                <h5>المملكة العربية السعودية - المنطقة الشرقية</h5>
+                <h5>الجبيل - مجمع السهول بلازا - محل رقم 31</h5>
+                <h5>جوال: 0534019118</h5>
+                <h5>abyanstoreksa@gmail.com :إيميل</h5>
+            </div>
+        </div>
+</div><!--end print container-->
+    
+</body>
+</html>

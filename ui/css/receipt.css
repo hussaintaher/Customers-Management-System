@@ -1,0 +1,177 @@
+#receipt-container {
+    width: 941px;
+    height: 842px;
+    margin: auto;
+    display: none;
+}
+#receipt-mainTable thead {
+    background-color: #f7f7f7;
+    box-shadow: -1px 6px 11px #282828ab;
+}
+#receipt-tbody tr {
+    background: #bd213063;
+}
+#receipt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#receipt-header h1 {
+    font-size: 20px;
+}
+#receipt-img {
+    width: 200px;
+    height: 100px;
+}
+
+#receipt-img img {
+    max-width: 100%;
+    height: auto;
+}
+
+#receipt-number-date {
+    margin-right: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+#receipt-head {
+    text-align: center;
+    margin-top: 300px;
+}
+#receipt-deleteBtn {
+    width: 78px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 8px 33px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+#new-receipt-btn {
+    width: 78px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 8px 29px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+#receipt-printBtn {
+    width: 78px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 8px 33px;
+    cursor: pointer;
+}
+#new-receipt-btn:hover {
+    background-color: #c5ef71;
+}
+#receipt-printBtn:hover {
+    background-color: #49d9c5;
+}
+#receipt-deleteBtn:hover {
+    background-color: #ff5959;
+}
+/************************/
+#receipt-fromTo-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+#receipt-fromTo-container h1 {
+    font-size: 20px;
+    font-weight: normal;
+}
+#receipt-to,
+#receipt-from {
+    text-align: right;
+}
+#receipt-to {
+    margin-left: 74px;
+}
+#receipt-from {
+    margin-right: 74px;
+}
+/**************************/
+#receipt-price-container {
+    border: 1px solid black;
+    border-right: none;
+    margin-top: 46px;
+    border-left: none;
+}
+#receipt-table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #bfbfbf;
+    text-align: center;
+}
+#receipt-mainTable tbody td {
+    text-align: center;
+    width: 25%;
+    color: white;
+    font-weight: bold;
+}
+.table th, .table td {
+    border-top: 1px solid black;
+}
+#receipt-table tbody th, 
+#receipt-table tbody td {
+    text-align: center;
+}
+/********************************/
+#receipt-policy {
+    text-align: right;
+    margin-right: 10px;
+}
+#receipt-policy h5 {
+    font-size: 15px;
+}
+#receipt-policy h1 {
+    font-size: 20px;
+    margin-top: 29px;
+}
+
+#returnBtn {
+    width: 78px;
+    background-color: #000000;
+    border-radius: 20px;
+    padding: 10px 28px 5px 28px;
+    margin-right: 20px;
+    cursor: pointer;
+    color: white;
+}
+#returnBtn i {
+    font-size: 22px;
+}
+#adress {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 317px;
+}
+
+#adress-eng {
+    text-align: left;
+}
+#adress-ar {
+    text-align: right;
+}
+#adress-ar h5,
+#adress-eng h5{
+    font-weight: 100;
+}
+
+#receipt-selection {
+    width: 138px;
+    padding-left: 42px;
+    border-radius: 11px;
+    padding: 5px 0 5px 45px;
+}
+#receipt-priceInput {
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    padding: 5px 0px;
+}
+#add-device-receipt {
+    border-left: 9px solid #929292;
+    width: 100%;
+    padding: 11px;
+}

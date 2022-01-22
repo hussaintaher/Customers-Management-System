@@ -1,0 +1,151 @@
+.procedures_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1076px;
+    height: 500px;
+    background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
+    border-radius: 20px;
+    display: none;
+}
+.procedure-cover {
+    width: 20%;
+    height: 100%;
+    position: relative;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    border-radius: 0 20px 20px 0;
+}
+.procedure-customer {
+    width: 80%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+#procedure-cover_img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 213px;
+}
+#procedure-cover_img {
+    max-width: 100%;
+    height: auto;
+}
+/* main containers */ 
+#procedure_header {
+    display: flex;
+    /* flex-grow: 1; */
+    justify-content: space-around;
+    margin-top: 23px;
+    text-align: center;
+    padding-bottom: 30px;
+}
+#procedure-list-container {
+    background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
+    height: 100%;
+    padding: 10px;
+    border-radius: 0 0 0 20px;
+}
+#procedure_list-subContainer {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 7px;
+    /* justify-content: center; */
+    align-items: center;
+    background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+    overflow: auto;
+    border-radius: 0 0 20px 20px;
+    
+}
+.procedure-list_header {
+    width: 100%;
+    height: 50px;
+    background-color: #d7fff0;
+    border-radius: 15px 15px 0 0;
+    box-shadow: -3px 4px 0.9rem #808e9b;
+    display: flex;
+    margin: 3px 0;
+}
+.procedure-list-header_item {
+    padding: 5px;
+    width: 43%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d7fff0;
+    border-radius: 20px;
+}
+.procedure_list {
+    width: 100%;
+    height: 50px;
+    background-color: #ffff;
+    border-radius: 20px;
+    box-shadow: -3px 4px 0.9rem #808e9b;
+    display: flex;
+    margin: 3px 0;
+    flex-direction: row-reverse;
+}
+.procedure_item {
+    padding: 5px;
+    width: 43%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffff;
+    border-radius: 20px;
+}
+/* containers of inputs */
+#procedures_date {}
+#procedures_name {}
+#procedures_receiver {}
+#procedure_btn {
+    padding: 0px 0 0 0;
+    margin-top: 30px;
+    width: 77px;
+    border: none;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #d7fff0;
+}
+#procedure_btn:hover {
+    background-color: #ccc;
+}
+/* inputs */
+#procedure-date_input,
+#procedure-name_input,
+#procedure-receiver_input {
+    border-radius: 9px;
+    border: none;
+    height: 26px;
+    text-align: right;
+    padding: 15px 6px;
+    outline: none;
+}
+#procedure-name_input {
+    width: 267px;
+}
+#procedure-date_input,
+#procedure-receiver_input {
+    text-align: center;
+}
+.close-procedure-page:hover {
+    color: red;
+}
+
+#trash-procedure {
+    cursor: pointer;
+    width: 25px;
+}
+.procedure-task {
+    width: 100%;
+}
+.h {
+    width: 100%;
+}

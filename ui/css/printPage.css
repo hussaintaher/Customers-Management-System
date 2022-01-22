@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 94px 94px 0 94px;
+}
+
+li {
+    list-style: none;
+}
+/* Logo */
+.img-container {
+    width: 200px;
+    margin: auto;
+}
+.theImg {
+    width: 100%;
+}
+
+/* table */ 
+.main-table {
+    display: flex;
+    flex-direction: column;
+    width: 626px;
+    margin: auto;
+    background-color: orange;
+}
+.main-row {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 7px 29px;
+    border: 1px solid black;
+}
+.main-row h1 {
+    font-size: 28px;
+}
+.main-row h1:nth-child(2) {
+    margin-left: 20px;
+    margin: auto;
+}
+/* policy */
+.policy {
+    margin-top: 20px;
+    margin:20px auto;;
+    width: 626px;
+    direction: rtl;
+}
+
