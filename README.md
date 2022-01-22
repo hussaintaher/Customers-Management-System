@@ -3,5 +3,5 @@ Using Plain Javascript with help of electron framework, I made Customer Manageme
 
 ##How To Run Project
   
-  ##1. Install electron version 10.1.3
-    ###npm i electron@10.1.3
+  ## 1. Install electron version 10.1.3
+    ### npm i electron@10.1.3
