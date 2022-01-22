@@ -2,7 +2,7 @@
 Using Plain Javascript with help of electron framework, I made Customer Management System Plain Javascript
 
 ## Goal
-### I was woking in smart phones store and I decided to make this project to provide quick service for our customers like printing receipt, bill and saving customer details etc...
+### I was working in smart phones store and I decided to make this project to provide quick service for our customers like printing receipt, bill and saving customer details etc...
 
 ## Technologies & Languages used
 ### Plain Javascript, HTML, CSS, Mongodb, Electron
